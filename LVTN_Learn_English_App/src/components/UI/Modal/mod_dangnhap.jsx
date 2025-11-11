@@ -1,7 +1,19 @@
-import "./modal.styles.css"
+import { useState } from "react";
+import "./modal.styles.css";
 
-export default function MOD_DangNhap({ isOpen, onClose }) {
+export default function MOD_DangNhap({ isOpen, onClose, onSubmit }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   if (!isOpen) return null;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (typeof onSubmit === "function") {
+      onSubmit({ username: username.trim(), password }); 
+      console.warn("onSubmit không phải function!", onSubmit);
+    }
+  };
 
   return (
     <div className="modal show d-block" tabIndex="-1" onClick={onClose}>
@@ -12,17 +24,37 @@ export default function MOD_DangNhap({ isOpen, onClose }) {
             <button type="button" className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">Username</label>
-                <input type="text" className="form-control" id="username" placeholder="Nhập username" />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  placeholder="Nhập username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">Password</label>
-                <input type="password" className="form-control" id="password" placeholder="Nhập password" />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  placeholder="Nhập password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
               </div>
-              <button type="submit" className="btn btn-primary w-100 mb-2">Đăng Nhập</button>
-              <button type="button" className="btn btn-danger w-100">Đăng Nhập với Google</button>
+              <button type="submit" className="btn btn-primary w-100 mb-2">
+                Đăng Nhập
+              </button>
+              <button type="button" className="btn btn-danger w-100">
+                Đăng Nhập với Google
+              </button>
             </form>
           </div>
         </div>

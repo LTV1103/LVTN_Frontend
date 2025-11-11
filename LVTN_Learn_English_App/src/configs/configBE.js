@@ -18,7 +18,7 @@ export const callBackend = async (endpoint, method = "GET", data = null) => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: data ? JSON.stringify(data) : null,
+      data: data || undefined,
     };
 
     const res = await axios(config);
