@@ -1,0 +1,33 @@
+.btn {
+  width: 120px;
+  height: 50px;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+/* Nút Đăng nhập */
+.btn-outline-primary {
+  color: #ff8c42 !important;          
+  border-color: #ff8c42 !important;      
+}
+
+.btn-outline-primary:hover {
+  background: linear-gradient(45deg, #ff8c42, #ff6f3c) !important;
+  color: white !important;
+  border-color: #ff6f3c !important;
+}
+
+/* Nút Đăng ký */
+.btn-outline-info {
+  background: linear-gradient(45deg, #ffb84c, #ff9f1c) !important;
+  border-color: #ffb84c !important;
+  color: white !important;
+}
+
+.btn-outline-info:hover {
+  background: linear-gradient(45deg, #ff9f1c, #ff7f00) !important;
+  border-color: #ff7f00 !important;
+}
+

@@ -1,8 +1,17 @@
-import Homepage from './pages/home/index.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/Home/home.jsx';
+import HomeAdmin from './pages/Admin/index.jsx'
 
-const App = () => {
+
+function App() {
   return (
-    <Homepage/>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/admin' element={<HomeAdmin/>} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
+
 export default App;
