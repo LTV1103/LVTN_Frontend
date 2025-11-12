@@ -14,13 +14,20 @@ const handleLogin = async ({ username, password }) => {
   try {
     const res = await userApi.loginUser(username, password);
     console.log("Login response:", res);
-
-    const loggedUser = res.data; // res.data chính là object { role, name, accessToken... }
+    
+    const loggedUser = res.data; 
 
     setUser(loggedUser); 
     setError("");
     setIsOpen(false);
+    const token = loggedUser.token;
+    const refreshToken = loggedUser.refreshToken;
 
+    // Lưu token và refreshToken vào localStorage
+    localStorage.setItem("token", token);
+    localStorage.setItem("refreshToken", refreshToken);
+    localStorage.setItem("user", JSON.stringify(loggedUser));
+    
     if (loggedUser.role === "admin") {
       navigate("/admin");
     } else {

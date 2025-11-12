@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./head.styles.css";
+import Xuly_ThongTin from "../../Logic/btn_info";
 import phoneIcon from '../../../assets/icons/react.svg';
 
 
@@ -35,6 +36,7 @@ export default function Header_Index() {
               />
             </form>
           </div>
+          <Xuly_ThongTin />
         </div>
       </div>
 

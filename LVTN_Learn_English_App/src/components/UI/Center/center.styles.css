@@ -1,10 +1,11 @@
 .center-content {
   display: flex;
+  min-width: 100% !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 160px); /* trừ chiều cao header + footer */
-  padding-top: 140px; /* chừa chỗ cho header fixed */
+  min-height: calc(100vh - 160px);
+  padding-top: 100px; /* trừ chiều cao header + footer */
   text-align: center;
   background-color: #f8f9fa;
 }

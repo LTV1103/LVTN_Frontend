@@ -1,6 +1,7 @@
-.header {
+.header  {
   transition: all 0.3s ease-in-out;
   z-index: 1050;
+  height: 130px;
 }
 
 .header-top {
