@@ -8,25 +8,26 @@
   cursor: pointer;
 }
 /* Nút Đăng nhập */
-.btn-outline-primary {
+.btn-outline-info {
   color: #ff8c42 !important;          
   border-color: #ff8c42 !important;      
 }
 
-.btn-outline-primary:hover {
+.btn-outline-info:hover {
   background: linear-gradient(45deg, #ff8c42, #ff6f3c) !important;
   color: white !important;
   border-color: #ff6f3c !important;
 }
 
 /* Nút Đăng ký */
-.btn-outline-info {
+.btn-outline-primary {
   background: linear-gradient(45deg, #ffb84c, #ff9f1c) !important;
   border-color: #ffb84c !important;
   color: white !important;
 }
 
-.btn-outline-info:hover {
+
+.btn-outline-primary:hover {
   background: linear-gradient(45deg, #ff9f1c, #ff7f00) !important;
   border-color: #ff7f00 !important;
 }

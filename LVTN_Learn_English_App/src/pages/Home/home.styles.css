@@ -1,0 +1,29 @@
+/* đảm bảo toàn bộ trang chiếm 100% chiều cao */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* wrapper chính chứa content */
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full height */
+}
+
+/* phần content chính flex-grow để đẩy footer xuống */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* căn giữa theo ngang */
+  align-items: center;    /* căn giữa theo dọc */
+}
+
+/* footer luôn ở dưới */
+.footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}

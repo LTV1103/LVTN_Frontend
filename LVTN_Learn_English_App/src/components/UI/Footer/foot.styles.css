@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0; /* loại bỏ margin mặc định */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full màn hình */
+}
+.footer {
+  width: 100%;
+  margin-top: auto; /* đẩy xuống đáy */
+  background-color: #212529; /* bg-dark */
+  color: #f8f9fa; /* text-light */
+  text-align: center;
+  padding: 1rem 0; /* py-4 */
+}

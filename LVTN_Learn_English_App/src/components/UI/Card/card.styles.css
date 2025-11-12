@@ -1,0 +1,12 @@
+.combo-card {
+  display: flex;
+  justify-content: space-between; /* cách đều 4 card */
+  gap: 20px; /* khoảng cách giữa các card */
+  flex-wrap: wrap; /* nếu màn hình nhỏ thì xuống hàng */
+  margin: 20px;
+}
+
+.combo-card > * {
+  flex: 1; /* mỗi card chiếm đều nhau */
+  min-width: 200px; /* card nhỏ nhất để không bị quá bé */
+}

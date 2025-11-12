@@ -1,0 +1,31 @@
+.header {
+  transition: all 0.3s ease-in-out;
+  z-index: 1050;
+}
+
+.header-top {
+  background-color: #fff;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+
+
+.header-bottom {
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #0d6efd;
+}
+
+.search-box {
+  width: 280px;
+  font-size: 0.9rem;
+}

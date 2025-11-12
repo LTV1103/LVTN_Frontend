@@ -24,7 +24,7 @@ const handleLogin = async ({ username, password }) => {
     if (loggedUser.role === "admin") {
       navigate("/admin");
     } else {
-      navigate("/home");
+      navigate("/homeuser");
     }
   } catch (err) {
     setError(err.response?.data?.message || err.message || "Đăng nhập thất bại");
@@ -42,7 +42,7 @@ const handleLogin = async ({ username, password }) => {
       />
 
       {error && <div className="alert alert-danger mt-2">{error}</div>}
-      {user && <div className="mt-2">Xin chào, {user.username}</div>}
+      {user && <div className="mt-2">Xin chào, {user.role}</div>}
     </>
   );
 }
