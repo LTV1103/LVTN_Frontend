@@ -7,6 +7,15 @@
   transition: 0.3s;
   cursor: pointer;
 }
+.btn_infoUser {
+  width: 150px;
+  height: 50px;
+  font-weight: bold;
+  border-radius: 8px;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
 /* Nút Đăng nhập */
 .btn-outline-info {
   color: #ff8c42 !important;          
@@ -30,5 +39,35 @@
 .btn-outline-primary:hover {
   background: linear-gradient(45deg, #ff9f1c, #ff7f00) !important;
   border-color: #ff7f00 !important;
+}
+
+/* Nút hình tròn giỏ hàng */
+.btn-cart-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  background: white;
+  color: #333;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn-cart-circle:hover {
+  background: #f5f5f5;
+  border-color: #0d6efd;
+  color: #0d6efd;
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.2);
+}
+
+.btn-cart-circle:active {
+  transform: scale(0.95);
 }
 
