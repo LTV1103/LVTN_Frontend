@@ -1,4 +1,4 @@
-import '../Footer/foot.styles.css'
+import './foot.styles.css'
 
 export default function Footer_Index() {
   return (

@@ -1,10 +1,9 @@
 import '../Card/card.styles.css'
 import arrow from '../../../assets/icons/arrow-right.svg';
-export default function Card({ imgUrl, courseName, description, price, level }) {
-  // Format price to Vietnamese format
-  const formattedPrice = new Intl.NumberFormat('vi-VN').format(price);
 
-  // Get level badge color
+export default function Card({imgUrl, courseName, description, price, level, onClick}) {
+  const formattedPrice = new Intl.NumberFormat('vi-VN').format(price);
+  
   const getLevelColor = (lvl) => {
     const colors = {
       beginner: '#667eea',
@@ -41,7 +40,7 @@ export default function Card({ imgUrl, courseName, description, price, level }) 
             <span className="price-label">Giá</span>
             <span className="price-amount">{formattedPrice} ₫</span>
           </div>
-          <button className="btn-enroll">
+        <button  type="button" className="btn-enroll" onClick={onClick}>
             <img src={arrow} alt="Enroll" />
           </button>
         </div>

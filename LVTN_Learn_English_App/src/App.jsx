@@ -5,7 +5,8 @@ import HomeAdmin from './pages/Admin/index.jsx';
 import UserInfo from './pages/Info/info_course.jsx';
 import Shop_Page from './pages/Shop/shope.jsx';
 import Info_User from './pages/Info/info_user.jsx';
-import ProtectedRoute from './components/Logic/checkToken.jsx';
+import ProtectedRoute from './components/Logic/KiemTra_Token.jsx';
+import Detail from './pages/Detail_Item/De_Item.jsx'
 
 function App() {
   return (
@@ -22,6 +23,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path='/detail/:id'
+          element={
+            <ProtectedRoute>
+              <Detail />
+            </ProtectedRoute>
+          }
+        />
+
 
         {/* User pages */}
         <Route

@@ -1,6 +1,6 @@
 import './center.styles.css';
-import Combo_Card from '../../Card/combo_card';
-import Banner_Index from '../../Banner/banner_index';
+import Combo_Card from '../../../UI/Card/combo_card';
+import Banner_Index from '../../../UI/Banner/banner_index';
 import Introduce from './introduce_index';
 import News_Index from './news_index';  
 export default function Center_Index() {

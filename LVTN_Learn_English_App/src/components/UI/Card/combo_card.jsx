@@ -1,10 +1,18 @@
 import Card from '../Card/card';
-import useCourses from '../../Logic/card_item';
+import useXulyKhoaHoc from '../../Logic/Xuly_KhoaHoc';
 import '../Card/card.styles.css';
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Combo_Card() {
-  const courses = useCourses();
-
+  const courses = useXulyKhoaHoc();
+  const navigate  = useNavigate();
+  const handleClick = (id) => {
+    window.scrollTo(0,0);
+    navigate(`/detail/${id}`)
+  }
+  // console.log('Courses in Combo_Card:', courses);
   return (
     <div
       className="combo-card"
@@ -23,6 +31,7 @@ export default function Combo_Card() {
               description={course.description}
               price={course.price}
               level={course.level}
+              onClick={() => handleClick(course.id_Course)}
             />
           ))
         : // fallback 4 card cứng

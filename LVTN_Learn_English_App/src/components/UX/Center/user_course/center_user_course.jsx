@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./center.course.styles.css";
-import Combo_Card from "../../Card/combo_card";
+import Combo_Card from "../../../UI/Card/combo_card";
 
 export default function Center_Course() {
   const [activeTab, setActiveTab] = useState("lesson1"); // tab default

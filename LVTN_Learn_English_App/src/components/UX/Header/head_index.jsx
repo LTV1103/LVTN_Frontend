@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./head.styles.css";
 import phoneIcon from '../../../assets/icons/react.svg';
-import Xuly_DangKy from "../../Logic/btn_Login.jsx";
-import Xuly_DangNhap from "../../Logic/btn_Res.jsx";
+import Xuly_DangKy from "../../Logic/Xuly_DangNhap.jsx";
+import Xuly_DangNhap from "../../Logic/Xuly_DangKy.jsx";
 import { Link } from "react-router-dom";
 
 export default function Header_Index() {

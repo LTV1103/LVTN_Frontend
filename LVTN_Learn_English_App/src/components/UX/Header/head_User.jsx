@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "./head.styles.css";
 import phoneIcon from '../../../assets/icons/react.svg';
-import Xuly_ThongTinKhoaHoc from "../../Logic/btn_info_course.jsx";
-import Xuly_ThongTinNguoiDung from "../../Logic/btn_info_user.jsx";
-import Xuly_GioHang from "../../Logic/btn_shop.jsx";
+import Xuly_ThongTinKhoaHoc from "../../Logic/Xuly_ThongTinKhoaHoc.jsx";
+import Xuly_ThongTinNguoiDung from "../../Logic/Xuly_ThongTinNguoiDung.jsx";
+import Xuly_GioHang from "../../Logic/Xuly_GioHang.jsx";
 
 
 export default function Header_Index() {
