@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./modal.styles.css";
 
-export default function MOD_DangNhap({ isOpen, onClose, onSubmit }) {
+export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -9,8 +9,13 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (typeof onSubmit === "function") {
-      onSubmit({ username: username.trim(), password }); 
+      onSubmit({
+        username: username.trim(),
+        password,
+      });
+    } else {
       console.warn("onSubmit không phải function!", onSubmit);
     }
   };
@@ -24,6 +29,7 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit }) {
             <button type="button" className="btn-close" onClick={onClose}></button>
           </div>
           <div className="modal-body">
+            {error && <div className="alert alert-danger mb-3">{error}</div>}
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">Username</label>

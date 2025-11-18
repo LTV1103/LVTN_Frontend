@@ -6,38 +6,25 @@ import userApi from '../../services/userApi';
 
 export default function Xuly_DangNhap() {
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const navigate = useNavigate(); // hook navigate
 
 const handleLogin = async ({ username, password }) => {
   try {
-    const res = await userApi.loginUser(username, password);
-    console.log("Login response:", res);
-    
-    const loggedUser = res.data; 
-
-    setUser(loggedUser); 
+    const loggedUser = await userApi.loginUser(username, password);
     setError("");
     setIsOpen(false);
-    const token = loggedUser.token;
-    const refreshToken = loggedUser.refreshToken;
 
-    // Lưu token và refreshToken vào localStorage
-    localStorage.setItem("token", token);
-    localStorage.setItem("refreshToken", refreshToken);
-    localStorage.setItem("user", JSON.stringify(loggedUser));
-    
-    if (loggedUser.role === "admin") {
-      navigate("/admin");
-    } else {
-      navigate("/homeuser");
-    }
+    localStorage.setItem("accessToken", loggedUser.data.accessToken);
+    localStorage.setItem("refreshToken", loggedUser.data.refreshToken);
+    localStorage.setItem("role", loggedUser.data.role);
+    if (loggedUser.data.role === "admin") navigate("/admin");
+    else navigate("/homeuser");
+
   } catch (err) {
-    setError(err.response?.data?.message || err.message || "Đăng nhập thất bại");
+    setError(err.message);
   }
 };
-
   return (
     <>
       <BTN_DangNhap onClick={() => setIsOpen(true)} />
@@ -46,10 +33,8 @@ const handleLogin = async ({ username, password }) => {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         onSubmit={handleLogin}
+        error={error}
       />
-
-      {error && <div className="alert alert-danger mt-2">{error}</div>}
-      {user && <div className="mt-2">Xin chào, {user.role}</div>}
     </>
   );
 }

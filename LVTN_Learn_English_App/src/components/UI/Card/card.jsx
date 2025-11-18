@@ -18,7 +18,10 @@ export default function Card({ imgUrl, courseName, description, price, level }) 
     <div className="course-card">
       <div className="card-image-wrapper">
         {imgUrl ? (
-          <img src={imgUrl} className="card-image" alt={courseName} />
+            <img
+            src={new URL(`../../../assets/card_img/${imgUrl}`, import.meta.url).href}
+            className="card-image"
+          />
         ) : (
           <div className="card-image-placeholder">
             <i className="bi bi-book"></i>

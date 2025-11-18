@@ -1,13 +1,26 @@
 .header  {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.28s ease-in-out;
   z-index: 1050;
-  height: 130px;
-  max-height: 130px;
+  /* let header size naturally so collapsing the top row reduces overall height */
+  height: auto;
+  max-height: none;
 }
 
 .header-top {
   background-color: #fff;
   transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* When JS toggles the 'hide' class on the top row, collapse it cleanly */
+.header-top.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  height: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 
@@ -24,10 +37,12 @@
 
 .nav-link {
   font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
   position: relative;
-  color: #333 !important;
+  color: #1a1a2e !important;
 }
 
 .nav-link:hover {
@@ -56,10 +71,12 @@
   width: 800px;
   max-width: 800px;
   font-size: 0.9rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 0.5rem 0.75rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.2px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 
@@ -105,18 +122,18 @@
 }
 
 .center-block {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  /* Use normal flow to avoid overlapping the logo/brand */
+  position: static;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex-direction: row;
   gap: 0.25rem;
   z-index: 2;
   pointer-events: auto;
-  width: 100%;
-  max-width: 900px; /* constrain for very wide screens */
+  width: auto;
+  max-width: none;
+  margin: 0 auto;
 }
 
 .center-nav {

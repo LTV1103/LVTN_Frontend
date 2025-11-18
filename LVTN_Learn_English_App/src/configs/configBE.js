@@ -7,8 +7,14 @@ import axios from "axios";
  * @param {object} data - dữ liệu gửi đi (dành cho POST/PUT)
  * @returns {Promise<any>} trả về dữ liệu backend
  */
-export const callBackend = async (endpoint, method = "GET", data = null) => {
-  const baseURL = "http://localhost:8080"; // backend của bạn
+
+export const callBackend = async (
+  endpoint,
+  method = "GET",
+  data = null,
+  extraHeaders = {}
+) => {
+  const baseURL = "http://localhost:8080";
   const url = `${baseURL}${endpoint}`;
 
   try {
@@ -17,16 +23,19 @@ export const callBackend = async (endpoint, method = "GET", data = null) => {
       url,
       headers: {
         "Content-Type": "application/json",
+        ...extraHeaders, // gửi token nếu có
       },
       data: data || undefined,
     };
 
     const res = await axios(config);
-    return res.data; // trả về object { status, message, data }
+    return res.data; // backend trả {status, message, data}
   } catch (err) {
-    console.error(`Lỗi gọi backend (${method} ${endpoint}):`, err.message);
-    return null;
+    console.error(
+      `Lỗi gọi backend (${method} ${endpoint}):`,
+      err.response?.data || err.message
+    );
+    return err.response?.data;
   }
 };
 export default callBackend;
-

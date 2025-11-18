@@ -5,6 +5,7 @@ import Xuly_ThongTinKhoaHoc from "../../Logic/btn_info_course.jsx";
 import Xuly_ThongTinNguoiDung from "../../Logic/btn_info_user.jsx";
 import Xuly_GioHang from "../../Logic/btn_shop.jsx";
 
+
 export default function Header_Index() {
   const [hideTop, setHideTop] = useState(false);
 
@@ -25,8 +26,7 @@ export default function Header_Index() {
           <div className="row align-items-center">
             <div className="col-auto d-flex align-items-center gap-2">
               <i className="bi bi-telephone"></i>
-              <img src={phoneIcon} alt="phone" height="24" />
-              <span className="fw-bold text-info">DH52112127</span>
+              <span className="fw-bold text-warning">LƯƠNG TRIỀU VỸ</span>
             </div>
 
             <div className="col d-flex justify-content-center">
@@ -51,7 +51,8 @@ export default function Header_Index() {
         <div className="container position-relative">
           <div className="d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center gap-2">
-              <span className="fw-bold text-warning">Learn_English_App</span>
+              <img src={phoneIcon} alt="phone" height="30" />
+              <span className="fw-bold text-info">DH52112127</span>
             </div>
 
             {/* center nav placed with absolute centering in CSS */}

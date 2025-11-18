@@ -14,26 +14,37 @@ const userApi = {
     return [];
   },
   loginUser: async (username, password) => {
-    try {
-      const res = await callBackend("/user/auth/login", "POST", {
-        username,
-        password,
-      });
-      return res;
-    } catch (err) {
-      throw new Error(err.response?.data?.message || "Đăng nhập thất bại");
-    }
+    const res = await callBackend("/user/auth/login", "POST", {
+      username,
+      password,
+    });
+    if (res?.status === 200 && res?.data) return res; // trả luôn object có status + data
+    throw new Error(res?.message || "Đăng nhập thất bại");
   },
   logoutUser: async (token) => {
-    try {
-      const res = await callBackend("/auth/logout", "POST", null, {
-        Authorization: `Bearer ${token}`,
-      });
-      return res.data;
-    } catch (err) {
-      throw new Error(err.response?.data?.message || "Logout thất bại");
-    }
+    if (!token) throw new Error("Token không tồn tại");
+
+    const res = await callBackend("/user/auth/logout", "POST", null, {
+      Authorization: `Bearer ${token}`,
+    });
+
+    if (res?.status === 200) return res.data;
+    throw new Error(res?.message || "Đăng xuất thất bại");
+  },
+  createUser: async (userData) => {
+    const res = await callBackend("/user", "POST", userData);
+    if (res?.status === 201 && res?.data) return res.data;
+    throw new Error(res?.message || "Tạo người dùng thất bại");
+  },
+  updateUser: async (id, userData) => {
+    const res = await callBackend(`/user/${id}`, "PUT", userData);
+    if (res?.status === 200 && res?.data) return res.data;
+    throw new Error(res?.message || "Cập nhật người dùng thất bại");
+  },
+  deleteUser: async (id) => {
+    const res = await callBackend(`/user/${id}`, "DELETE");
+    if (res?.status === 200) return true;
+    throw new Error(res?.message || "Xóa người dùng thất bại");
   },
 };
-
 export default userApi;

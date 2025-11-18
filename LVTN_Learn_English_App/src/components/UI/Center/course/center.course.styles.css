@@ -1,0 +1,72 @@
+.center-course-wrapper {
+    padding-top: 120px;
+}
+
+/* Layout tổng */
+.lesson-container {
+    display: flex;
+    width: 1300px;
+    padding: 20px;
+}
+
+/* Sidebar */
+.lesson-sidebar {
+    width: 230px;
+    border-right: 1px solid #ddd;
+    padding-right: 20px;
+
+    position: sticky; /* dính khi scroll */
+    top: 120px;       /* khoảng cách so với top wrapper */
+    height: calc(100vh - 120px); /* chiếm chiều cao còn lại */
+}
+
+.lesson-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lesson-sidebar li {
+    margin: 10px 0;
+}
+
+/* Style item */
+.lesson-sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 12px;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.lesson-sidebar a:hover {
+    background: #ffe7bf;
+    border-color: #ff9800;
+    color: #ff9800;
+    transform: translateX(4px);
+}
+
+/* Active */
+.lesson-sidebar a.active {
+    background: #ff9800;
+    color: white;
+    border-color: #ff9800;
+    font-weight: 700;
+}
+
+/* Nội dung bài giảng */
+.lesson-content {
+    flex: 1;
+    padding-left: 30px;
+}

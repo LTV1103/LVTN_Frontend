@@ -3,6 +3,7 @@ import "./head.styles.css";
 import phoneIcon from '../../../assets/icons/react.svg';
 import Xuly_DangKy from "../../Logic/btn_Login.jsx";
 import Xuly_DangNhap from "../../Logic/btn_Res.jsx";
+import { Link } from "react-router-dom";
 
 export default function Header_Index() {
   const [hideTop, setHideTop] = useState(false);
@@ -23,11 +24,11 @@ export default function Header_Index() {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-auto d-flex align-items-center gap-2">
-              <i className="bi bi-telephone"></i>
-              <img src={phoneIcon} alt="phone" height="24" />
-              <span className="fw-bold text-info">DH52112127</span>
+              <Link to="/">
+                <i className="bi bi-telephone"></i>
+              </Link>
+              <span className="fw-bold text-warning">LƯƠNG TRIỀU VỸ</span>
             </div>
-
             <div className="col d-flex justify-content-center">
               <form className="d-flex w-100 justify-content-center">
                 <input
@@ -51,7 +52,8 @@ export default function Header_Index() {
         <div className="container position-relative">
           <div className="d-flex align-items-center justify-content-between">
             <div className="d-flex align-items-center gap-2">
-              <span className="fw-bold text-warning">Learn_English_App</span>
+              <img src={phoneIcon} alt="phone" height="30" />
+              <span className="fw-bold text-info">DH52112127</span>
             </div>
 
             {/* center nav placed with absolute centering in CSS */}

@@ -1,7 +1,7 @@
 import '../Banner/banner.styles.css'
-import Banner1 from '../../../assets/images/banner1.png';
+import Banner1 from '../../../assets/images/banner3.png';
 import Banner2 from '../../../assets/images/banner2.png';
-import Banner3 from '../../../assets/images/banner3.png';
+import Banner3 from '../../../assets/images/banner1.png';
 
 export default function Banner_Index() {
   return (
@@ -19,12 +19,12 @@ export default function Banner_Index() {
         <div className="carousel-item active">
           <img src={Banner1} className="d-block w-100" alt="Banner 1" />
         </div>
-        <div className="carousel-item">
+        {/* <div className="carousel-item active">
           <img src={Banner2} className="d-block w-100" alt="Banner 2" />
         </div>
-        <div className="carousel-item">
+                <div className="carousel-item active">
           <img src={Banner3} className="d-block w-100" alt="Banner 3" />
-        </div>
+        </div> */}
       </div>
 
       <button className="carousel-control-prev" type="button"
