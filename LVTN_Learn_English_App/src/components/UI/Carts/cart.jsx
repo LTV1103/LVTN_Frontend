@@ -2,6 +2,7 @@ import './carts.styles.css'
 import { useState, useEffect } from "react";
 import BTN_ThanhToan from "../Button/btn_thanhtoan";
 
+
 export default function Them_SP() {
   const [cartItems, setCartItems] = useState([]);
     let tongGia = 0;
@@ -13,13 +14,15 @@ export default function Them_SP() {
     setCartItems(savedCart);
   }, []);
 
+
+  
   return (
     <div className="cart-wrapper">
       <h2>Giỏ hàng của bạn</h2>
-      <p className="cart-title">
+      <div className="cart-title">
         Tổng số sản phẩm: {cartItems.length}
-        <p>Tong gia: {new Intl.NumberFormat("vi-VN").format(tongGia)} ₫</p>
-      </p>
+        <div>Tong gia: {new Intl.NumberFormat("vi-VN").format(tongGia)} ₫</div>
+      </div>
       <hr className="cart-divider" />
 
       {cartItems.length > 0 ? (
@@ -38,7 +41,7 @@ export default function Them_SP() {
         <p>Không có sản phẩm nào.</p>
       )}
       <div>
-        <BTN_ThanhToan />
+        <BTN_ThanhToan onclick={() => {}} />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export default function Detail_Item() {
   const courseByID = useXulyKhoaHoc();
   const [added, setAdded] = useState(false);
   const [cartItem, setCartItem] = useState(0);
-
+  console.log("Số lượng trong giỏ hàng:", cartItem);
   // load giỏ hàng từ localStorage khi mở trang
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -18,6 +18,11 @@ export default function Detail_Item() {
   }, [courseByID]);
   //Them sp moi vao gio hang cu va kiem tra
   const handleAddToCart = () => {
+    const checkToken = localStorage.getItem("accessToken");
+    if (!checkToken) {
+      alert("Vui lòng đăng nhập để thêm vào giỏ hàng.");
+      return;
+    }
     if (!courseByID) return;
     const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
     if (!cart.find(item => item.id_Course === courseByID.id_Course)) {
@@ -57,8 +62,6 @@ export default function Detail_Item() {
       >
         {added ? "Đã thêm vào giỏ hàng" : "Thêm vào giỏ hàng"}
       </button>
-
-      <p style={{ marginTop: 10 }}>Tổng số sản phẩm trong giỏ: {cartItem}</p>
     </div>
   );
 }

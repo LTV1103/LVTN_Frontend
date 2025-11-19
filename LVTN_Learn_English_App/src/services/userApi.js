@@ -9,9 +9,10 @@ const userApi = {
   },
   fetchUsersbyID: async (id) => {
     const res = await callBackend(`/user/${id}`, "GET");
-    if (res && Array.isArray(res.data)) return res.data;
-    if (res && Array.isArray(res.data?.data)) return res.data.data;
-    return [];
+    if (!res) return null;
+    if (res.data?.data) return res.data.data; // trả về khóa học trực tiếp
+    if (res.data) return res.data; // fallback
+    return null;
   },
   loginUser: async (username, password) => {
     const res = await callBackend("/user/auth/login", "POST", {

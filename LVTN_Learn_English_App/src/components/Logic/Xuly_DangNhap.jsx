@@ -14,7 +14,8 @@ const handleLogin = async ({ username, password }) => {
     const loggedUser = await userApi.loginUser(username, password);
     setError("");
     setIsOpen(false);
-
+    localStorage.setItem("id", loggedUser.data.id);
+    localStorage.setItem("user", loggedUser.data.user);
     localStorage.setItem("accessToken", loggedUser.data.accessToken);
     localStorage.setItem("refreshToken", loggedUser.data.refreshToken);
     localStorage.setItem("role", loggedUser.data.role);

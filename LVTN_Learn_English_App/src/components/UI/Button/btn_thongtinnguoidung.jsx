@@ -7,7 +7,7 @@ export default function BTN_TTNGuoiDung({ onClick, onLogout }) {
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
+    const storedUsername = localStorage.getItem('user');
     const storedEmail = localStorage.getItem('email');
     setUsername(storedUsername || '');
     setEmail(storedEmail || '');

@@ -5,8 +5,8 @@ import HomeAdminPage from './pages/Admin/adminPage.jsx';
 import CourseUserPage from './pages/Info/infoPage_course.jsx';
 import ShopPage from './pages/Shop/shopPage.jsx';
 import UserPage from './pages/Info/infoPage_user.jsx';
-import ProtectedRoute from './components/Logic/KiemTra_Token.jsx';
-import DetailCourse from './pages/Detail_Item/detailPage_CourseItem.jsx'
+import KTToken from './components/Logic/KiemTra_Token.jsx';
+import DetailCoursePage from './pages/Detail_Item/detailPage.jsx'
 function App() {
   return (
     <BrowserRouter>
@@ -17,52 +17,48 @@ function App() {
         <Route
           path='/admin'
           element={
-            <ProtectedRoute>
+            <KTToken>
               <HomeAdminPage />
-            </ProtectedRoute>
+            </KTToken>
           }
         />
         <Route
           path='/detail/:id'
           element={
-            <ProtectedRoute>
-              <DetailCourse />
-            </ProtectedRoute>
+              <DetailCoursePage />
           }
         />
-
-
         {/* User pages */}
         <Route
           path='/homeuser'
           element={
-            <ProtectedRoute>
+            <KTToken>
               <HomeUserPage />
-            </ProtectedRoute>
+            </KTToken>
           }
         />
         <Route
           path='/info'
           element={
-            <ProtectedRoute>
+            <KTToken>
               <CourseUserPage />
-            </ProtectedRoute>
+            </KTToken>
           }
         />
         <Route
           path='/shop'
           element={
-            <ProtectedRoute>
+            <KTToken>
               <ShopPage />
-            </ProtectedRoute>
+            </KTToken>
           }
         />
         <Route
           path='/infouser'
           element={
-            <ProtectedRoute>
+            <KTToken>
               <UserPage />
-            </ProtectedRoute>
+            </KTToken>
           }
         />
       </Routes>

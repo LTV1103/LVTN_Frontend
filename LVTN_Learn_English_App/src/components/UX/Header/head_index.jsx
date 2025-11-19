@@ -60,22 +60,22 @@ export default function Header_Index() {
             <nav className="center-block">
               <ul className="nav center-nav">
                 <li className="nav-item">
-                  <a className="nav-link text-dark fw-semibold" href="#about">
+                  <a className="nav-link text-dark fw-semibold" href="/#about">
                     Giới thiệu chung
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-dark fw-semibold" href="#programs">
+                  <a className="nav-link text-dark fw-semibold" href="/#programs">
                     Chương trình học
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-dark fw-semibold" href="#courses">
+                  <a className="nav-link text-dark fw-semibold" href="/#courses">
                     Khóa Học
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-dark fw-semibold" href="#news">
+                  <a className="nav-link text-dark fw-semibold" href="/#news">
                     Tin tức
                   </a>
                 </li>

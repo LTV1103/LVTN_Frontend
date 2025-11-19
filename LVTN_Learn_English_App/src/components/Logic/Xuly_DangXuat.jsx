@@ -9,8 +9,7 @@ export const logoutUser = async () => {
     const token = localStorage.getItem("refeshtoken");
     if (token) await userApi.logoutUser(token);
 
-    localStorage.removeItem("accesstoken"); 
-    localStorage.removeItem("refeshtoken");// hoặc key auth
+    localStorage.clear();
     sessionStorage.clear();
 
     console.log("Đăng xuất thành công");

@@ -9,15 +9,10 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (typeof onSubmit === "function") {
       onSubmit({
         username: username.trim(),
         password,
       });
-    } else {
-      console.warn("onSubmit không phải function!", onSubmit);
-    }
   };
 
   return (
