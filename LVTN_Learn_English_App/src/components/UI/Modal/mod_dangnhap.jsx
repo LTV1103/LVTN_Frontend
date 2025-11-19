@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./modal.styles.css";
+import LoginGG from "../../../services/LoginGG.jsx";
 
 export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
   const [username, setUsername] = useState("");
@@ -53,9 +54,14 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
               <button type="submit" className="btn btn-primary w-100 mb-2">
                 Đăng Nhập
               </button>
-              <button type="button" className="btn btn-danger w-100">
+              {/* <button type="button" className="btn btn-danger w-100">
                 Đăng Nhập với Google
-              </button>
+              </button> */}
+              <LoginGG onLoginSuccess={(user) => {
+                  const email = user.email.trim(); 
+                  const password = "GOOGLE_USER"; // không cần trim vì cứng
+                  onSubmit({ username: email, password: password});
+              }} />
             </form>
           </div>
         </div>

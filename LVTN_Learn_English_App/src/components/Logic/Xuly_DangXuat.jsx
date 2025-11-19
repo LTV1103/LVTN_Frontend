@@ -6,12 +6,10 @@ export const logoutUser = async () => {
   if (!confirmLogout) return false;
 
   try {
-    const token = localStorage.getItem("refeshtoken");
+    const token = localStorage.getItem("accessToken");
     if (token) await userApi.logoutUser(token);
-
     localStorage.clear();
     sessionStorage.clear();
-
     console.log("Đăng xuất thành công");
     return true;
   } catch (err) {
