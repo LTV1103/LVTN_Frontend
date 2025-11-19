@@ -1,4 +1,4 @@
-import '../Home/home.styles.css';
+import '../Home/homePage.styles.css';
 import Header_User from '../../components/UX/Header/head_User.jsx';
 import Footer_Index from '../../components/UX/Footer/foot_index.jsx';
 import Center_Index from '../../components/UX/Center/index/center_index.jsx';

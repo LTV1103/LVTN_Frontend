@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomeUser from './pages/Home/home_user.jsx';
-import HomePage from './pages/Home/home.jsx';
-import HomeAdmin from './pages/Admin/index.jsx';
-import UserInfo from './pages/Info/info_course.jsx';
-import Shop_Page from './pages/Shop/shope.jsx';
-import Info_User from './pages/Info/info_user.jsx';
+import HomeUserPage from './pages/Home/homePage_User.jsx';
+import HomePage from './pages/Home/homePage.jsx';
+import HomeAdminPage from './pages/Admin/adminPage.jsx';
+import CourseUserPage from './pages/Info/infoPage_course.jsx';
+import ShopPage from './pages/Shop/shopPage.jsx';
+import UserPage from './pages/Info/infoPage_user.jsx';
 import ProtectedRoute from './components/Logic/KiemTra_Token.jsx';
-import Detail from './pages/Detail_Item/De_Item.jsx'
-
+import DetailCourse from './pages/Detail_Item/detailPage_CourseItem.jsx'
 function App() {
   return (
     <BrowserRouter>
@@ -19,7 +18,7 @@ function App() {
           path='/admin'
           element={
             <ProtectedRoute>
-              <HomeAdmin />
+              <HomeAdminPage />
             </ProtectedRoute>
           }
         />
@@ -27,7 +26,7 @@ function App() {
           path='/detail/:id'
           element={
             <ProtectedRoute>
-              <Detail />
+              <DetailCourse />
             </ProtectedRoute>
           }
         />
@@ -38,7 +37,7 @@ function App() {
           path='/homeuser'
           element={
             <ProtectedRoute>
-              <HomeUser />
+              <HomeUserPage />
             </ProtectedRoute>
           }
         />
@@ -46,7 +45,7 @@ function App() {
           path='/info'
           element={
             <ProtectedRoute>
-              <UserInfo />
+              <CourseUserPage />
             </ProtectedRoute>
           }
         />
@@ -54,7 +53,7 @@ function App() {
           path='/shop'
           element={
             <ProtectedRoute>
-              <Shop_Page />
+              <ShopPage />
             </ProtectedRoute>
           }
         />
@@ -62,7 +61,7 @@ function App() {
           path='/infouser'
           element={
             <ProtectedRoute>
-              <Info_User />
+              <UserPage />
             </ProtectedRoute>
           }
         />

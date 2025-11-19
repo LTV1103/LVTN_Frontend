@@ -1,5 +1,5 @@
-import '../Home/home.styles.css';
-import Header_Index from '../../components/UX/Header/head_index.jsx';
+import '../Home/homePage.styles.css';
+import Header_Index from '../../components/UX/Header/head_Index.jsx';
 import Footer_Index from '../../components/UX/Footer/foot_index.jsx';
 import Center_Index from '../../components/UX/Center/index/center_index.jsx';
 

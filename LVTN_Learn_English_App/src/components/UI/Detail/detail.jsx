@@ -1,49 +1,64 @@
 // Detail_Item.js
 import useXulyKhoaHoc from "../../Logic/Xuly_Chitiet_KH";
-import '../Card/card.styles.css'; // style sẵn có
-import { useState } from "react";
+import './detail.styles.css';
+import { useState, useEffect } from "react";
 
 export default function Detail_Item() {
   const courseByID = useXulyKhoaHoc();
-  const [added, setAdded] = useState(false); // trạng thái đã thêm giỏ hàng
+  const [added, setAdded] = useState(false);
+  const [cartItem, setCartItem] = useState(0);
 
+  // load giỏ hàng từ localStorage khi mở trang
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    setCartItem(savedCart.length);
+    if (savedCart.find(item => item.id_Course === courseByID?.id_Course)) {
+      setAdded(true);
+    }
+  }, [courseByID]);
+  //Them sp moi vao gio hang cu va kiem tra
   const handleAddToCart = () => {
-    // ở đây bạn có thể gọi API thêm vào giỏ hàng hoặc lưu localStorage
-    console.log("Đã thêm vào giỏ hàng:", courseByID.id);
-    setAdded(true);
+    if (!courseByID) return;
+    const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+    if (!cart.find(item => item.id_Course === courseByID.id_Course)) {
+      const updatedCart = [...cart, courseByID];
+      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+      setCartItem(updatedCart.length);
+      setAdded(true);
+      alert("Đã thêm vào giỏ hàng:", courseByID.id_Course);
+    } else {
+      alert("Khóa học đã có trong giỏ hàng:", courseByID.id_Course);
+    }
   };
 
-  if (!courseByID) return <p>Đang tải dữ liệu...</p>; // loading
+  if (!courseByID) return <p>Đang tải dữ liệu...</p>;
 
   return (
-    <div className="detail-item" style={{ maxWidth: '600px', margin: '20px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '12px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+    <div className="detail-item-wrapper">
       <img
         src={new URL(`../../../assets/card_img/${courseByID.imgUrl}`, import.meta.url).href}
         alt={courseByID.courseName}
-        className="card-image"
-        style={{ width: '100%', borderRadius: '12px', marginBottom: '16px' }}
+        className="detail-item-image"
       />
-      <h2 style={{ marginBottom: '12px' }}>{courseByID.courseName}</h2>
-      <p style={{ marginBottom: '8px', color: '#555' }}>{courseByID.description}</p>
-      <p style={{ fontWeight: 'bold', marginBottom: '8px' }}>Giá: {new Intl.NumberFormat('vi-VN').format(courseByID.price)} ₫</p>
-      <p style={{ marginBottom: '16px' }}>Level: {courseByID.level?.toUpperCase()}</p>
+
+      <h2 className="detail-item-title">{courseByID.courseName}</h2>
+      <p className="detail-item-desc">{courseByID.description}</p>
+      <p className="detail-item-price">
+        Giá: {new Intl.NumberFormat('vi-VN').format(courseByID.price)} ₫
+      </p>
+      <p className="detail-item-level">
+        Level: {courseByID.level?.toUpperCase()}
+      </p>
 
       <button
         type="button"
         onClick={handleAddToCart}
-        style={{
-          padding: '10px 20px',
-          backgroundColor: added ? '#4ade80' : '#667eea',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          fontWeight: 'bold',
-          transition: '0.3s'
-        }}
+        className={`detail-item-btn ${added ? "added" : ""}`}
       >
         {added ? "Đã thêm vào giỏ hàng" : "Thêm vào giỏ hàng"}
       </button>
+
+      <p style={{ marginTop: 10 }}>Tổng số sản phẩm trong giỏ: {cartItem}</p>
     </div>
   );
 }

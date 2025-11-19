@@ -1,0 +1,26 @@
+.cart-wrapper {
+  padding-top: 120px;
+}
+
+.cart-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cart-divider {
+  margin: 10px 0;
+  border-top: 1px solid #ddd;
+}
+
+.cart-item {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.cart-item img {
+  width: 300px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
