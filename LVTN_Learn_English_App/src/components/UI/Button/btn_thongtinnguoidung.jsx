@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../Button/button.styles.css';
+import BTN_DangXuat from './btn_dangxuat';
 import personIcon from '../../../assets/icons/person.svg';
 
-export default function BTN_TTNGuoiDung({ onClick, onLogout }) {
+export default function BTN_TTNGuoiDung({ onClick}) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
@@ -37,16 +38,7 @@ export default function BTN_TTNGuoiDung({ onClick, onLogout }) {
           </a>
         </li>
         <li>
-          <button
-            type="button"
-            className="dropdown-item"
-            onClick={(e) => {
-              e.preventDefault(); // chặn mọi behavior mặc định
-              onLogout();
-            }}
-          >
-            Đăng xuất
-          </button>
+          <BTN_DangXuat/>
         </li>
       </ul>
     </div>

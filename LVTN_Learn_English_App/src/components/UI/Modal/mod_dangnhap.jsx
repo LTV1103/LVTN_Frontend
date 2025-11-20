@@ -1,6 +1,5 @@
 import { useState } from "react";
-import "./modal.styles.css";
-import LoginGG from "../../../services/LoginGG.jsx";
+import LoginGG from "../../../components/Logic/LoginGG";
 
 export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
   const [username, setUsername] = useState("");
@@ -10,62 +9,71 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      onSubmit({
-        username: username.trim(),
-        password,
-      });
+    onSubmit({
+      username: username.trim(),
+      password,
+    });
   };
 
   return (
-    <div className="modal show d-block" tabIndex="-1" onClick={onClose}>
-      <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Đăng Nhập</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
-          </div>
-          <div className="modal-body">
-            {error && <div className="alert alert-danger mb-3">{error}</div>}
-            <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label htmlFor="username" className="form-label">Username</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="username"
-                  placeholder="Nhập username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
+    <>
+     <div className="modal-backdrop fade show"></div>
+      <div className={`modal fade ${isOpen ? "show d-block" : ""}`} tabIndex="-1" onClick={onClose}>
+        <div className="modal-dialog modal-dialog-centered" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content shadow-lg rounded-3">
+            <div className="modal-header border-0">
+              <h5 className="modal-title fw-bold text-success">🔑 Đăng Nhập</h5>
+              <button type="button" className="btn-close" onClick={onClose}></button>
+            </div>
+            <div className="modal-body">
+              {error && <div className="alert alert-danger mb-3">{error}</div>}
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="username" className="form-label">Username</label>
+                  <div className="input-group">
+                    <span className="input-group-text">👤</span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      placeholder="Nhập username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Password</label>
+                  <div className="input-group">
+                    <span className="input-group-text">🔒</span>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="password"
+                      placeholder="Nhập password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-success w-100 mb-3">
+                   Đăng Nhập
+                </button>
+                <div className="divider"><span>Hoặc</span></div>
+                  <LoginGG
+                  onLoginSuccess={(user) => {
+                    const email = user.email.trim();
+                    const password = "GOOGLE_USER";
+                    onSubmit({ username: email, password });
+                  }}
                 />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Nhập password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </div>
-              <button type="submit" className="btn btn-primary w-100 mb-2">
-                Đăng Nhập
-              </button>
-              {/* <button type="button" className="btn btn-danger w-100">
-                Đăng Nhập với Google
-              </button> */}
-              <LoginGG onLoginSuccess={(user) => {
-                  const email = user.email.trim(); 
-                  const password = "GOOGLE_USER"; // không cần trim vì cứng
-                  onSubmit({ username: email, password: password});
-              }} />
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
