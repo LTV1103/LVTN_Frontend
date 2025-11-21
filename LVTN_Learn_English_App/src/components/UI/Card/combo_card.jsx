@@ -1,5 +1,5 @@
 import Card from '../Card/card';
-import useXulyKhoaHoc from '../../Logic/Xuly_KhoaHoc';
+import useXulyKhoaHoc from '../../event/GetAllCourse';
 import '../Card/card.styles.css';
 import { useNavigate } from "react-router-dom";
 

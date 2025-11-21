@@ -10,7 +10,7 @@ export default function useXulyKhoaHoc() {
     
     const fetchCourses = async () => {
       try {
-        const res = await courseApi.fetchCourseById(id);
+        const res = await courseApi.fetchCourseByID(id);
         setCoursesId(res);
       } catch (err) {
         console.error(err);

@@ -1,9 +1,9 @@
 import '../stylesPage/page.styles.css'
 import Footer_Admin from "../../components/Layout/Footer/footer_admin";
 import Header_Admin from '../../components/Layout/Header/head_admin';
-import Center_Admin from '../../components/Layout/Center/admin/center_admin';
+import Center_Admin_User from '../../components/Layout/Center/admin/center_admin_user';
 import Sidebar from '../../components/UI/Sidebar/sideBar';
-export default function HomeAdmin(){
+export default function Admin_User(){
     return(
         <div className="row">
             <div className="col-2 pe-0" >
@@ -13,7 +13,7 @@ export default function HomeAdmin(){
                 <div className="home-wrapper">
                     <Header_Admin />
                     <div className="main-content">
-                        <Center_Admin/>
+                        <Center_Admin_User/>
                     </div>
                     <Footer_Admin/>
                 </div>

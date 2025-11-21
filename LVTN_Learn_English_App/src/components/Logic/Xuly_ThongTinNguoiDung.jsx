@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import BTN_TTNGuoiDung from "../UI/Button/btn_thongtinnguoidung";
-import { logoutUser } from "./Xuly_DangXuat"; // import hàm logout
+import { logoutUser } from "../event/DangXuat.js"; // import hàm logout
 
 export default function Xuly_ThongTinNguoiDung() {
   const navigate = useNavigate();

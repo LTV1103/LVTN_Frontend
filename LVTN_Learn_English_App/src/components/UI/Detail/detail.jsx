@@ -1,5 +1,5 @@
 // Detail_Item.js
-import useXulyKhoaHoc from "../../Logic/Xuly_Chitiet_KH";
+import useXulyKhoaHoc from "../../event/GetCourseByID";
 import './detail.styles.css';
 import { useState, useEffect } from "react";
 

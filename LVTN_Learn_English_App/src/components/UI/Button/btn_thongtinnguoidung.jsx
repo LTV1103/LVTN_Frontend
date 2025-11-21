@@ -27,18 +27,21 @@ export default function BTN_TTNGuoiDung({ onClick}) {
       </button>
 
       <ul className="dropdown-menu dropdown-menu-end">
-        <li className="px-3 py-2 border-bottom">
-          <small className="text-muted">Tài khoản</small>
-          <div className="fw-semibold text-dark">{username}</div>
-          <small className="text-muted">{email}</small>
-        </li>
+ 
+            <li className="px-3 py-2 border-bottom">
+              <small className="text-muted">Tài khoản</small>
+              <div className="fw-semibold text-dark">{username}</div>
+              <small className="text-muted">{email}</small>
+            </li>
+      
+            <li>
+              <a className="dropdown-item" onClick={onClick}>
+                Thông tin tài khoản
+              </a>
+            </li>
+
         <li>
-          <a className="dropdown-item" onClick={onClick}>
-            Thông tin tài khoản
-          </a>
-        </li>
-        <li>
-          <BTN_DangXuat/>
+          <BTN_DangXuat />
         </li>
       </ul>
     </div>

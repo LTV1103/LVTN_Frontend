@@ -1,5 +1,5 @@
 import './button.styles.css';
-import {logoutUser} from '../../Logic/Xuly_DangXuat';
+import {logoutUser} from '../../event/DangXuat.js';
 
 export default function BTN_DangXuat() {
   const handleClick = async (e) => {

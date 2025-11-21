@@ -163,3 +163,14 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+/* ADMIN */
+.header-admin {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.search-box input::placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}

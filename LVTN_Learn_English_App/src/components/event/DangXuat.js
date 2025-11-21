@@ -6,7 +6,7 @@ export const logoutUser = async () => {
   if (!confirmLogout) return false;
 
   try {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("refeshToken");
     if (token) await userApi.logoutUser(token);
     localStorage.clear();
     sessionStorage.clear();
