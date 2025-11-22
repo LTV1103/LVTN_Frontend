@@ -4,10 +4,12 @@ import phoneIcon from '../../../assets/icons/react.svg';
 import Xuly_ThongTinKhoaHoc from "../../Logic/Xuly_ThongTinKhoaHoc.jsx";
 import Xuly_ThongTinNguoiDung from "../../Logic/Xuly_ThongTinNguoiDung.jsx";
 import Xuly_GioHang from "../../Logic/Xuly_GioHang.jsx";
+import BTN_ChuyenTrang from "../../Logic/Xuly_ChuyenTrang.jsx";
 
 
 export default function Header_Index() {
   const [hideTop, setHideTop] = useState(false);
+  const role = localStorage.getItem("role");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,6 +83,7 @@ export default function Header_Index() {
               </ul>
             </nav>
             <div className="col-auto d-flex align-items-center gap-1" style={{ width: 48 }} />
+              {role === "admin" && <BTN_ChuyenTrang />}
               <Xuly_ThongTinKhoaHoc />
           </div>
         </div>

@@ -9,10 +9,10 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({
-      username: username.trim(),
-      password,
-    });
+    onSubmit(
+    username, // phải là key 'username'
+    password
+    );console.log(onSubmit);
   };
 
   return (
@@ -66,7 +66,7 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
                   onLoginSuccess={(user) => {
                     const email = user.email.trim();
                     const password = "GOOGLE_USER";
-                    onSubmit({ username: email, password });
+                    onSubmit(email,password);
                   }}
                 />
               </form>

@@ -1,7 +1,6 @@
+import LoadData from '../../../UI/FormLoadData/LoadDataReport'
 export default function Center_Admin(){
     return(
-            <div className="row">
-                <div >center</div>
-            </div>
+            <LoadData />
     );
 }

@@ -1,31 +1,39 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import BTN_DangNhap from "../UI/Button/btn_dangnhap";
 import MOD_DangNhap from "../UI/Modal/mod_dangnhap";
-import userApi from '../../services/userApi';
+import {loginUser} from '../event/DangNhap';
+import { useNavigate } from "react-router-dom";
 
 export default function Xuly_DangNhap() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // hook navigate
 
-const handleLogin = async ({ username, password }) => {
+const handleLogin = async (username,password) => { // nhận 1 object duy nhất
   try {
-    const loggedUser = await userApi.loginUser(username, password);
+    const result = await loginUser(username, password);
+
+    if (!result.success) {
+      setError("Đăng nhập thất bại!");
+      return;
+    }
+
     setError("");
     setIsOpen(false);
-    localStorage.setItem("id", loggedUser.data.id);
-    localStorage.setItem("user", loggedUser.data.user);
-    localStorage.setItem("accessToken", loggedUser.data.accessToken);
-    localStorage.setItem("refreshToken", loggedUser.data.refreshToken);
-    localStorage.setItem("role", loggedUser.data.role);
-    if (loggedUser.data.role === "admin") navigate("/admin");
+
+    const role = result.user.role;
+    console.log(role);
+
+    if (role === "admin") navigate("/admin");
     else navigate("/homeuser");
 
   } catch (err) {
-    setError(err.message);
+    console.error(err);
+    setError(err.message || "Đăng nhập thất bại");
   }
 };
+
+
   return (
     <>
       <BTN_DangNhap onClick={() => setIsOpen(true)} />

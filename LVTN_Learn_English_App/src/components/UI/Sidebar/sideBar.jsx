@@ -37,8 +37,7 @@ export default function Sidebar({ open = true }) {
       className="d-flex flex-column bg-dark text-white p-3"
       style={{
         width: "100%",
-        height: "100vh",
-        transition: "width 0.3s ease",
+        height: "100%",
       }}
     >
       {/* Toggle Btn */}
@@ -48,6 +47,7 @@ export default function Sidebar({ open = true }) {
         </div>
         {datauser && <h4 className="m-0">Welcome: {datauser.fullname}</h4>}
       </div>
+      <hr />
       {/* Nav Items */}
       <div className="flex-grow-1 d-flex flex-column gap-2">
         <SidebarItem open={open} icon={<House size={20} />} label="Dashboard" onClick={()=>navigationTo("/admin")}/>
@@ -55,10 +55,12 @@ export default function Sidebar({ open = true }) {
         <SidebarItem open={open} icon={<GraduationCap size={20} />} label="Quản lý khóa học" onClick={()=>navigationTo("/admin/course")} />
         <SidebarItem open={open} icon={<BookOpen size={20} />} label="Quản lý bài học" onClick={()=>navigationTo("/admin/lesson")} />
         <SidebarItem open={open} icon={<CreditCard size={20} />} label="Quản lý thanh toán" onClick={()=>navigationTo("/admin/payment")}/>
-      </div>
-
-      {/* Bottom logout */}
-      <div className="mt-auto">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <hr />
         <SidebarItem open={open} icon={<LogOut size={20} />} label="Đăng xuất" onClick={handleClick} />
       </div>
     </div>

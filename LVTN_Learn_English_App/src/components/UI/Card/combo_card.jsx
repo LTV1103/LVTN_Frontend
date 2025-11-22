@@ -1,18 +1,31 @@
 import Card from '../Card/card';
-import useXulyKhoaHoc from '../../event/GetAllCourse';
 import '../Card/card.styles.css';
 import { useNavigate } from "react-router-dom";
-
-
+import courseApi from '../../../services/courseApi';
+import { useState, useEffect } from "react";
 
 export default function Combo_Card() {
-  const courses = useXulyKhoaHoc();
-  const navigate  = useNavigate();
+  const [courses, setCourses] = useState([]); // thêm state để lưu danh sách khóa học
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const data = await courseApi.fetchCourse();
+        setCourses(data);
+      } catch (err) {
+        console.error("Lỗi khi load courses:", err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  const navigate = useNavigate();
   const handleClick = (id) => {
-    window.scrollTo(0,0);
-    navigate(`/detail/${id}`)
-  }
-  // console.log('Courses in Combo_Card:', courses);
+    window.scrollTo(0, 0);
+    navigate(`/detail/${id}`);
+  };
+
   return (
     <div
       className="combo-card"

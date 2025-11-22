@@ -1,23 +1,22 @@
-import { useState } from "react";
-import BTN_DangKy from "../UI/Button/btn_dangky";
-import MOD_DangKy from "../UI/Modal/mod_dangky";
-import userApi from "../../services/userApi";
-
+import { useState } from "react"; 
+import BTN_DangKy from "../UI/Button/btn_dangky"; 
+import MOD_DangKy from "../UI/Modal/mod_dangky"; 
+import { dangKyUser } from "../event/DangKy";
 export default function Xuly_DangKy() {
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSubmit = async (form) => {
-    try {
-      const newUser = await userApi.createUser(form);
-      console.log("Người dùng mới:", newUser);
+    const result = await dangKyUser(form);
+
+    if (result.success) {
       alert("Đăng ký thành công!");
       setIsOpen(false);
-    } catch (err) {
-      console.error("Lỗi khi đăng ký:", err);
-      setError(err.message);
+    } else {
+      setError(result.error);
     }
   };
+
   return (
     <>
       <BTN_DangKy onClick={() => setIsOpen(true)} />

@@ -1,22 +1,38 @@
 // Detail_Item.js
-import useXulyKhoaHoc from "../../event/GetCourseByID";
 import './detail.styles.css';
+import courseApi from '../../../services/courseApi';
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 
 export default function Detail_Item() {
-  const courseByID = useXulyKhoaHoc();
+  const { id } = useParams();
+  const [courseByID, setCourseByID] = useState(null); // đổi tên state cho rõ nghĩa
   const [added, setAdded] = useState(false);
   const [cartItem, setCartItem] = useState(0);
-  console.log("Số lượng trong giỏ hàng:", cartItem);
+
+  // gọi API lấy course theo id
+  useEffect(() => {
+    const fetchCourse = async () => {
+      try {
+        const res = await courseApi.fetchCourseByID(id);
+        setCourseByID(res);
+      } catch (err) {
+        console.error("Lỗi khi load course:", err);
+      }
+    };
+    fetchCourse();
+  }, [id]);
+
   // load giỏ hàng từ localStorage khi mở trang
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
     setCartItem(savedCart.length);
-    if (savedCart.find(item => item.id_Course === courseByID?.id_Course)) {
+    if (courseByID && savedCart.find(item => item.id_Course === courseByID.id_Course)) {
       setAdded(true);
     }
   }, [courseByID]);
-  //Them sp moi vao gio hang cu va kiem tra
+
+  // thêm vào giỏ hàng
   const handleAddToCart = () => {
     const checkToken = localStorage.getItem("accessToken");
     if (!checkToken) {
@@ -24,15 +40,16 @@ export default function Detail_Item() {
       return;
     }
     if (!courseByID) return;
+
     const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
     if (!cart.find(item => item.id_Course === courseByID.id_Course)) {
       const updatedCart = [...cart, courseByID];
       localStorage.setItem("cartItems", JSON.stringify(updatedCart));
       setCartItem(updatedCart.length);
       setAdded(true);
-      alert("Đã thêm vào giỏ hàng:", courseByID.id_Course);
+      alert("Đã thêm vào giỏ hàng: " + courseByID.id_Course);
     } else {
-      alert("Khóa học đã có trong giỏ hàng:", courseByID.id_Course);
+      alert("Khóa học đã có trong giỏ hàng: " + courseByID.id_Course);
     }
   };
 
@@ -45,7 +62,6 @@ export default function Detail_Item() {
         alt={courseByID.courseName}
         className="detail-item-image"
       />
-
       <h2 className="detail-item-title">{courseByID.courseName}</h2>
       <p className="detail-item-desc">{courseByID.description}</p>
       <p className="detail-item-price">
@@ -54,7 +70,7 @@ export default function Detail_Item() {
       <p className="detail-item-level">
         Level: {courseByID.level?.toUpperCase()}
       </p>
-
+      <p className="detail-item-cart">Số lượng trong giỏ hàng: {cartItem}</p>
       <button
         type="button"
         onClick={handleAddToCart}

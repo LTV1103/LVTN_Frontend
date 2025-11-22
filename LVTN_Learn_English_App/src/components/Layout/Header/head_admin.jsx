@@ -1,3 +1,4 @@
+import BTN_ChuyenTrang from "../../Logic/Xuly_ChuyenTrang";
 export default function Header_Admin() {
   return (
     <div className="header bg-light p-3 shadow-sm">
@@ -10,7 +11,7 @@ export default function Header_Admin() {
 
         {/* Cột giữa: ô tìm kiếm */}
         <div className="col-4 d-flex justify-content-center">
-          
+          <BTN_ChuyenTrang />
         </div>
 
         {/* Cột phải: icon + dropdown */}
