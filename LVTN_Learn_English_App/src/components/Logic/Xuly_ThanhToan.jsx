@@ -6,16 +6,24 @@ export default function Xuly_ThanhToan() {
   const [cartItems, setCartItems] = useState([]);
   const [tongGia, setTongGia] = useState(0);
   const id = localStorage.getItem("id");
-    useEffect(() => {
+  useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
     setCartItems(savedCart);
-    // Tính tổng giá
+
     let total = 0;
     savedCart.forEach(course => {
-        total += course.price;
+      total += course.price;
     });
     setTongGia(total);
-    }, []);
+    //kiem tra neu success xoa gio hang
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("status") === "success") {
+      localStorage.removeItem("cartItems");
+      setCartItems([]);
+      setTongGia(0);
+    }
+  }, []);
+
 
 
   // Hàm xử lý khi click nút thanh toán
