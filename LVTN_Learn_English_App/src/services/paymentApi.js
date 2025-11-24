@@ -23,6 +23,9 @@ const paymentApi = {
     if (res?.status === 201 && res?.data) return res.data;
     throw new Error(res?.message);
   },
+paymentVNPay: async (formData) => {
+  return await callBackend("/payment/create", "POST", formData);
+},
 
   updatePayment: async (id, courseData) => {
     const res = await callBackend(`/payment/${id}`, "PUT", courseData);

@@ -45,13 +45,20 @@ export default function Detail_Item() {
     if (!cart.find(item => item.id_Course === courseByID.id_Course)) {
       const updatedCart = [...cart, courseByID];
       localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-      setCartItem(updatedCart.length);
+
+      // cập nhật state giỏ hàng
+      setCartItem(updatedCart);  
+      setCartItem(updatedCart.length); // nếu bạn có state đếm số lượng
       setAdded(true);
+
+
       alert("Đã thêm vào giỏ hàng: " + courseByID.id_Course);
     } else {
       alert("Khóa học đã có trong giỏ hàng: " + courseByID.id_Course);
     }
   };
+  
+
 
   if (!courseByID) return <p>Đang tải dữ liệu...</p>;
 
