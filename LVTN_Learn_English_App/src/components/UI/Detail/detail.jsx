@@ -1,64 +1,8 @@
-// Detail_Item.js
 import './detail.styles.css';
-import courseApi from '../../../services/courseApi';
-import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import useDetailItem from '../../event/themGioHang';
 
 export default function Detail_Item() {
-  const { id } = useParams();
-  const [courseByID, setCourseByID] = useState(null); // đổi tên state cho rõ nghĩa
-  const [added, setAdded] = useState(false);
-  const [cartItem, setCartItem] = useState(0);
-
-  // gọi API lấy course theo id
-  useEffect(() => {
-    const fetchCourse = async () => {
-      try {
-        const res = await courseApi.fetchCourseByID(id);
-        setCourseByID(res);
-      } catch (err) {
-        console.error("Lỗi khi load course:", err);
-      }
-    };
-    fetchCourse();
-  }, [id]);
-
-  // load giỏ hàng từ localStorage khi mở trang
-  useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    setCartItem(savedCart.length);
-    if (courseByID && savedCart.find(item => item.id_Course === courseByID.id_Course)) {
-      setAdded(true);
-    }
-  }, [courseByID]);
-
-  // thêm vào giỏ hàng
-  const handleAddToCart = () => {
-    const checkToken = localStorage.getItem("accessToken");
-    if (!checkToken) {
-      alert("Vui lòng đăng nhập để thêm vào giỏ hàng.");
-      return;
-    }
-    if (!courseByID) return;
-
-    const cart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    if (!cart.find(item => item.id_Course === courseByID.id_Course)) {
-      const updatedCart = [...cart, courseByID];
-      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-
-      // cập nhật state giỏ hàng
-      setCartItem(updatedCart);  
-      setCartItem(updatedCart.length); // nếu bạn có state đếm số lượng
-      setAdded(true);
-
-
-      alert("Đã thêm vào giỏ hàng: " + courseByID.id_Course);
-    } else {
-      alert("Khóa học đã có trong giỏ hàng: " + courseByID.id_Course);
-    }
-  };
-  
-
+  const { courseByID, added, cartItem, handleAddToCart } = useDetailItem();
 
   if (!courseByID) return <p>Đang tải dữ liệu...</p>;
 

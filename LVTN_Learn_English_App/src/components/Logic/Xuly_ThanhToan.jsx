@@ -31,14 +31,14 @@ export default function Xuly_ThanhToan() {
     try {
       // Tạo form từ giỏ hàng
       const form = {
-        idUser: id, // hoặc lấy từ session/context
-        idCourse: cartItems.map(c => c.id_Course).join(","), // nối nhiều idCourse thành chuỗi
+        userId: id, // hoặc lấy từ session/context
+        courseId: cartItems.map(c => c.courseId).join(","), // nối nhiều idCourse thành chuỗi
         amount: tongGia.toString(),
         orderInfo: "Thanh toán giỏ hàng gồm " + cartItems.map(c => c.courseName).join(", ")
       };
 
       const result = await ThanhToanVNPay(form);
-      console.log(result);  
+      console.log(cartItems);  
 
       if (result.success && result.payment.paymentUrl) {
         // Redirect sang VNPAY

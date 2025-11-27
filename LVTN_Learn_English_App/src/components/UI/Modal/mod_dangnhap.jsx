@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginGG from "../../../components/Logic/LoginGG";
 
 export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
-  const [username, setUsername] = useState("");
+  const [username, setUsermane] = useState("");
   const [password, setPassword] = useState("");
 
   if (!isOpen) return null;
@@ -38,7 +38,7 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
                       id="username"
                       placeholder="Nhập username"
                       value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      onChange={(e) => setUsermane(e.target.value)}
                       required
                     />
                   </div>

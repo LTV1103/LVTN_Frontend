@@ -44,7 +44,7 @@ export default function Combo_Card() {
               description={course.description}
               price={course.price}
               level={course.level}
-              onClick={() => handleClick(course.id_Course)}
+              onClick={() => handleClick(course.courseId)}
             />
           ))
         : // fallback 4 card cứng

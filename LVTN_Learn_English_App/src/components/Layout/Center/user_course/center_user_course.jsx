@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./center.course.styles.css";
-import Combo_Card from "../../../UI/Card/combo_card";
+import Course_user from "../../../UI/Card/combo_course";
 
 export default function Center_Course() {
   const [activeTab, setActiveTab] = useState("lesson1"); // tab default
@@ -10,8 +10,8 @@ export default function Center_Course() {
       case "lesson1":
         return (
           <>
-            <h2>Bài 1: Khóa học đã mua</h2>
-            <Combo_Card />
+            <h2>Khóa học đã mua</h2>
+            <Course_user />
           </>
         );
 
@@ -19,7 +19,7 @@ export default function Center_Course() {
         return (
           <>
             <h2>Từ điển cá nhân</h2>
-            <p>Hiển thị danh sách từ mà chủ nhân đã lưu.</p>
+            <p>Hiển thị danh sách từ đã lưu.</p>
           </>
         );
 
