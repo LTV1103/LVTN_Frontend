@@ -14,9 +14,9 @@ const userApi = {
     if (res.data) return res.data; // fallback
     return null;
   },
-  loginUser: async (username, password) => {
+  loginUser: async (email, password) => {
     const res = await callBackend("/user/auth/login", "POST", {
-      username,
+      email,
       password,
     });
     if (res?.status === 200 && res?.data) return res; // trả luôn object có status + data

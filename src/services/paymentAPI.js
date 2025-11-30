@@ -24,7 +24,9 @@ const paymentApi = {
     throw new Error(res?.message);
   },
 paymentVNPay: async (formData) => {
-  return await callBackend("/payment/create", "POST", formData);
+  const res =  await callBackend("/payment/create", "POST", formData);
+  if (res?.status === 200 && res?.data) return res.data;
+    throw new Error(res?.message);
 },
 
   updatePayment: async (id, courseData) => {

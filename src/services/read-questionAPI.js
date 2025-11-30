@@ -1,7 +1,7 @@
 import { callBackend } from "../configs/ConfigBE";
-const listenApi = {
-  fetchListen: async () => {
-    const res = await callBackend("/listening", "GET");
+const readQuestionApi = {
+  fetchRead: async () => {
+    const res = await callBackend("/read-question", "GET");
     if (!res) return null;
     //lay phan data trong JSON
     if (res.data?.data) return res.data.data;
@@ -10,31 +10,31 @@ const listenApi = {
     return null;
   },
 
-  fetchListenByID: async (id) => {
-    const res = await callBackend(`/listening/${id}`, "GET");
+  fetchReadByID: async (id) => {
+    const res = await callBackend(`/read-question/${id}`, "GET");
     if (!res) return null;
     if (res.data?.data) return res.data.data;
     if (res.data) return res.data;
     return null;
   },
 
-  createListen: async (courseData) => {
-    const res = await callBackend("/listening", "POST", courseData);
+  createRead: async (courseData) => {
+    const res = await callBackend("/read-question", "POST", courseData);
     if (res?.status === 201 && res?.data) return res.data;
     throw new Error(res?.message);
   },
 
-  updateListen: async (id, courseData) => {
-    const res = await callBackend(`/listening/${id}`, "PUT", courseData);
+  updateRead: async (id, courseData) => {
+    const res = await callBackend(`/read-question/${id}`, "PUT", courseData);
     if (res?.status === 200 && res?.data) return res.data;
     throw new Error(res?.message);
   },
 
-  deleteListen: async (id) => {
-    const res = await callBackend(`/listening/${id}`, "DELETE");
+  deleteRead: async (id) => {
+    const res = await callBackend(`/read-question/${id}`, "DELETE");
     if (res?.status === 200) return true;
     throw new Error(res?.message);
   },
 };
 
-export default listenApi;
+export default readQuestionApi;
