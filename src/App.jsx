@@ -8,8 +8,8 @@ import DetailCoursePage from './pages/Detail_Item/detailPage.jsx'
 import ShopPage from './pages/Shop/shopPage.jsx';
 import UserPage from './pages/Info/infoPage_user.jsx';
 
-import KTToken from './components/event/KiemTra_Token.js';
-import KTRole from './components/event/checkroleAdmin.js';
+import KTToken from './components/event/kiemtra_token.js';
+import KTRole from './components/event/kiemtra_role.js';
 
 import HomeAdminPage from './pages/Admin/adminPage.jsx';
 import Admin_Course from './pages/Admin/adminPage_course.jsx';
@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route
-          path='/homeuser'
+          path='/home'
           element={
             <KTToken>
               <HomeUserPage />

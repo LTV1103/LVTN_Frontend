@@ -1,7 +1,7 @@
-import '../stylesPage/page.styles.css'
+import '../page.styles.css'
 import Header_User from '../../components/Layout/Header/head_user.jsx';
 import Footer_Index from '../../components/Layout/Footer/foot_index.jsx';
-import Center_Index from '../../components/Layout/Center/index/center_index.jsx';
+import Center_Index from '../../components/Layout/Center/Home/center_index.jsx';
 
 export default function HomePage() {
   return (

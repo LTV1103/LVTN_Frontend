@@ -29,9 +29,7 @@ export default function User_Info() {
     <div className="user-info-card">
       <h2>Thông tin người dùng</h2>
       <p><strong>Họ và tên:</strong> {userByID.fullname}</p>
-      <p><strong>Tên đăng nhập:</strong> {userByID.username}</p>
       <p><strong>Email:</strong> {userByID.email}</p>
-      <p><strong>Nhà cung cấp:</strong> {userByID.provider}</p>
       <p><strong>Ngày tạo tài khoản:</strong> {new Date(userByID.createdAt).toLocaleDateString("vi-VN")}</p>
     </div>
   );

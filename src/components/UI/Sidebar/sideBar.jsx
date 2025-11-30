@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import personUser from "../../../assets/icons/person-circle.svg"
 import { House, User, Settings, LogOut, BookOpen, GraduationCap, CreditCard } from "lucide-react";
-import { logoutUser } from "../../event/DangXuat.js";
+import { logoutUser } from "../../event/dangxuat.js";
 import userApi from "../../../services/userApi.js";
 import { useNavigate } from "react-router-dom";
 

@@ -6,9 +6,9 @@ export default function KiemTraRoleAdmin({ children }) {
   const role = localStorage.getItem("role");
 
   useEffect(() => {
-    if (role === 'User') {
+    if (role === 'user') {
       alert("Bạn không được phép vào trang này");
-      navigate("/homeuser"); // redirect chuẩn React Router
+      navigate("/home"); // redirect chuẩn React Router
     }
   }, [role, navigate]);
 

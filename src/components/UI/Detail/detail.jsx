@@ -1,5 +1,5 @@
 import './detail.styles.css';
-import useDetailItem from '../../event/themGioHang';
+import useDetailItem from '../../event/themgiohang';
 
 export default function Detail_Item() {
   const { courseByID, added, cartItem, handleAddToCart } = useDetailItem();

@@ -19,12 +19,12 @@ export default function Banner_Index() {
         <div className="carousel-item active">
           <img src={Banner1} className="d-block w-100" alt="Banner 1" />
         </div>
-        {/* <div className="carousel-item active">
+        <div className="carousel-item active">
           <img src={Banner2} className="d-block w-100" alt="Banner 2" />
         </div>
                 <div className="carousel-item active">
           <img src={Banner3} className="d-block w-100" alt="Banner 3" />
-        </div> */}
+        </div>
       </div>
 
       <button className="carousel-control-prev" type="button"

@@ -8,7 +8,7 @@ export default function Xuly_ChuyenTrang() {
   const handleClick = () => {
     // Nếu đang ở trang admin thì chuyển sang homeuser
     if (location.pathname.startsWith("/admin")) {      
-        navigate("/homeuser");
+        navigate("/home");
     } else {
       // Ngược lại nếu đang ở homeuser thì chuyển sang admin
       navigate("/admin");

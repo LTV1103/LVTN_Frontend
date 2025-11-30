@@ -1,6 +1,5 @@
 import './carts.styles.css'
 import { useState, useEffect } from "react";
-import BTN_ThanhToan from "../Button/btn_thanhtoan";
 import Xuly_ThanhToan from '../../Logic/Xuly_ThanhToan';
 
 

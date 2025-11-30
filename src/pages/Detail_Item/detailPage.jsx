@@ -1,8 +1,8 @@
-import '../stylesPage/page.styles.css'
+import '../page.styles.css'
 import Header_User from "../../components/Layout/Header/head_user";
 import Header_Index from "../../components/Layout/Header/head_index";
 import Footer_Index from "../../components/Layout/Footer/foot_index";
-import Detail from "../../components/Layout/Center/detail_course/center_detail_course";
+import Detail from "../../components/Layout/Center/Detail_Course/center_detail_course";
 
 export default function Detail_Item() {
   const checkToken = localStorage.getItem("accessToken");

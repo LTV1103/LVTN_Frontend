@@ -3,7 +3,7 @@ import "./modal.styles.css";
 
 export default function MOD_DangKy({ isOpen, onClose, onSubmit, error }) {
   const [form, setForm] = useState({
-    username: "",
+    email: "",
     fullname: "",
     password: "",
     confirmPassword: "",
@@ -18,7 +18,7 @@ export default function MOD_DangKy({ isOpen, onClose, onSubmit, error }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!form.username || !form.password || !form.confirmPassword || !form.fullname) {
+    if (!form.email || !form.password || !form.confirmPassword || !form.fullname) {
       alert("Vui lòng điền đầy đủ thông tin!");
       return;
     }
@@ -53,7 +53,7 @@ export default function MOD_DangKy({ isOpen, onClose, onSubmit, error }) {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="username" className="form-label">Username</label>
-                  <input type="text" className="form-control" id="username" name="username" value={form.username} onChange={handleChange} placeholder="Nhập username" required />
+                  <input type="text" className="form-control" id="username" name="username" value={form.email} onChange={handleChange} placeholder="Nhập email đăng ký" required />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>

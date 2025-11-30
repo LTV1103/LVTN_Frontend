@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoginGG from "../../../components/Logic/LoginGG";
 
 export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
-  const [username, setUsermane] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   if (!isOpen) return null;
@@ -10,7 +10,7 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(
-    username, // phải là key 'username'
+    email, // phải là key 'username'
     password
     );console.log(onSubmit);
   };
@@ -35,10 +35,10 @@ export default function MOD_DangNhap({ isOpen, onClose, onSubmit, error }) {
                     <input
                       type="text"
                       className="form-control"
-                      id="username"
-                      placeholder="Nhập username"
-                      value={username}
-                      onChange={(e) => setUsermane(e.target.value)}
+                      id="email"
+                      placeholder="Nhập email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                   </div>

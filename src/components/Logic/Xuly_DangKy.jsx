@@ -1,7 +1,7 @@
 import { useState } from "react"; 
 import BTN_DangKy from "../UI/Button/btn_dangky"; 
 import MOD_DangKy from "../UI/Modal/mod_dangky"; 
-import { dangKyUser } from "../event/DangKy";
+import { dangKyUser } from "../event/dangky";
 export default function Xuly_DangKy() {
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(null);

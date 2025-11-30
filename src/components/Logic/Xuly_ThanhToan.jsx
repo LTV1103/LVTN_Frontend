@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ThanhToanVNPay from "../event/vnpay";
+import ThanhToanVNPay from "../event/thanhtoanvnpay";
 import BTN_ThanhToan from "../UI/Button/btn_thanhtoan";
 
 export default function Xuly_ThanhToan() {

@@ -1,7 +1,7 @@
-import '../stylesPage/page.styles.css'
+import '../page.styles.css'
 import Footer_Admin from "../../components/Layout/Footer/footer_admin";
 import Header_Admin from '../../components/Layout/Header/head_admin';
-import Center_Admin_Lesson from '../../components/Layout/Center/admin/center_admin_lesson';
+import Center_Admin_Lesson from '../../components/Layout/Center/Admin/center_admin_lesson';
 import Sidebar from '../../components/UI/Sidebar/sideBar';
 export default function Admin_Course(){
     return(

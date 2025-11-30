@@ -4,13 +4,10 @@ import BTN_DangXuat from './btn_dangxuat';
 import personIcon from '../../../assets/icons/person.svg';
 
 export default function BTN_TTNGuoiDung({ onClick}) {
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('user');
     const storedEmail = localStorage.getItem('email');
-    setUsername(storedUsername || '');
     setEmail(storedEmail || '');
   }, []);
 
@@ -30,8 +27,7 @@ export default function BTN_TTNGuoiDung({ onClick}) {
  
             <li className="px-3 py-2 border-bottom">
               <small className="text-muted">Tài khoản</small>
-              <div className="fw-semibold text-dark">{username}</div>
-              <small className="text-muted">{email}</small>
+              <div className="fw-semibold text-dark">{email}</div>
             </li>
       
             <li>

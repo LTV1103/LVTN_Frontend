@@ -1,7 +1,7 @@
-import '../stylesPage/page.styles.css'
+import '../page.styles.css'
 import Footer_Admin from "../../components/Layout/Footer/footer_admin";
 import Header_Admin from '../../components/Layout/Header/head_admin';
-import Center_Admin from '../../components/Layout/Center/admin/center_admin';
+import Center_Admin from '../../components/Layout/Center/Admin/center_admin';
 import Sidebar from '../../components/UI/Sidebar/sideBar';
 export default function HomeAdmin(){
     return(
